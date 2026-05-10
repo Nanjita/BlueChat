@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        height: 100%;
+    }
+
+    body {
+        min-height: 100%;
+    }
+}
+
+@layer utilities {
+    .scrollbar-slim::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .scrollbar-slim::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.04);
+        border-radius: 999px;
+    }
+
+    .scrollbar-slim::-webkit-scrollbar-thumb {
+        background: rgba(37, 99, 235, 0.25);
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .scrollbar-slim::-webkit-scrollbar-thumb:hover {
+        background: rgba(37, 99, 235, 0.38);
+    }
+
+    .scrollbar-slim {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(37, 99, 235, 0.38) rgba(15, 23, 42, 0.06);
+    }
+
+    .animate-message-in {
+        animation: message-in 180ms ease-out both;
+    }
+
+    @keyframes message-in {
+        from {
+            transform: translateY(6px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
