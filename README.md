@@ -36,32 +36,26 @@ Project ini dibuat untuk belajar implementasi real-time chat menggunakan Laravel
 
 ## Cara Instalasi
 
-### 1. Clone repository
-```bash
-git clone git@github.com:Nanjita/BlueChat.git
-cd BlueChat
-````
-
-### 2. Install dependency backend
+### 1. Install dependency backend
 
 ```bash
 composer install
 ```
 
-### 3. Install dependency frontend
+### 2. Install dependency frontend
 
 ```bash
 npm install
 ```
 
-### 4. Setup .env
+### 3. Setup .env
 
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 5. Setup database (.env)
+### 4. Setup database (.env)
 
 ```env
 DB_CONNECTION=mysql
@@ -72,13 +66,13 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 6. Migration
+### 5. Migration
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 7. Build frontend
+### 6. Build frontend
 
 ```bash
 npm run build
