@@ -1,61 +1,68 @@
-
+````md
 # BlueChat — Real-Time Chat Application
 
-BlueChat adalah aplikasi chat real-time berbasis Laravel + Reverb yang memungkinkan user saling kirim pesan secara langsung tanpa perlu refresh halaman.
-
----
-
-## About
-
-Project ini dibuat untuk belajar implementasi real-time chat menggunakan Laravel Reverb dan WebSocket.
+Aplikasi mini chat real-time berbasis Laravel + Reverb yang memungkinkan user saling mengirim pesan tanpa refresh halaman dan pesan tersimpan ke database.
 
 ---
 
 ## Fitur
 
-- Real-time chat tanpa refresh
-- Status online user
-- Kirim & terima pesan langsung
-- Penyimpanan pesan ke database
-- Update pesan otomatis
-- Tampilan chat sederhana dan responsif
+* Real-Time Chat menggunakan Laravel Reverb
+* Kirim & Terima Pesan Tanpa Refresh
+* Penyimpanan Pesan ke Database
+* Presence Channel / Status Online User
+* Tampilan Chat Modern
 
 ---
 
 ## Teknologi
 
-- Laravel
-- Laravel Reverb
-- Laravel Echo
-- Pusher JS
-- MySQL
-- Vite
-- Blade
+* Laravel
+* Laravel Reverb
+* MySQL
+* Blade
+* Vite
+* Laravel Echo
+* Pusher JS
 
 ---
 
 ## Cara Instalasi
 
-### 1. Install dependency backend
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/Nanjita/BlueChat
+````
+
+### 2. Install Dependency
 
 ```bash
 composer install
-```
-
-### 2. Install dependency frontend
-
-```bash
 npm install
 ```
 
-### 3. Setup .env
+### 3. Copy File Environment
 
 ```bash
 cp .env.example .env
+```
+
+### 4. Generate Application Key
+
+```bash
 php artisan key:generate
 ```
 
-### 4. Setup database (.env)
+### 5. Buat Database
+
+Buat database baru dengan nama:
+
+```txt
+BlueChat
+```
+
+### 6. Atur Database di File `.env`
 
 ```env
 DB_CONNECTION=mysql
@@ -66,13 +73,13 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Migration
+### 7. Jalankan Migration dan Seeder
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Build frontend
+### 8. Build Frontend Assets
 
 ```bash
 npm run build
@@ -80,17 +87,21 @@ npm run build
 
 ---
 
-## Cara Menjalankan
+# Cara Menjalankan Project
 
-Project ini butuh 2 terminal:
+Project wajib menjalankan 2 terminal secara bersamaan.
 
-### Terminal 1
+---
+
+## Terminal 1 — Laravel Server
 
 ```bash
 php artisan serve --host=127.0.0.1 --port=8000
 ```
 
-### Terminal 2
+---
+
+## Terminal 2 — Laravel Reverb
 
 ```bash
 php artisan reverb:start --host=127.0.0.1 --port=8080 --debug
@@ -100,24 +111,23 @@ php artisan reverb:start --host=127.0.0.1 --port=8080 --debug
 
 ## Akses Aplikasi
 
-Buka:
+Buka browser:
 
-```
+```txt
 http://127.0.0.1:8000
 ```
 
-Cara test:
+Untuk mencoba fitur real-time:
 
 * Buka 2 tab browser
-* Login pakai user berbeda
-* Kirim pesan
-* Pesan langsung muncul di tab lain tanpa refresh
+* Kirim pesan dari tab pertama
+* Pesan otomatis muncul di tab kedua tanpa refresh halaman
 
 ---
 
 ## Konfigurasi Reverb
 
-Di file `.env`:
+Pastikan file `.env` memiliki konfigurasi berikut:
 
 ```env
 BROADCAST_CONNECTION=reverb
@@ -125,7 +135,6 @@ BROADCAST_CONNECTION=reverb
 REVERB_APP_ID=
 REVERB_APP_KEY=
 REVERB_APP_SECRET=
-
 REVERB_HOST=127.0.0.1
 REVERB_PORT=8080
 REVERB_SCHEME=http
@@ -138,19 +147,23 @@ VITE_REVERB_SCHEME="${REVERB_SCHEME}"
 
 ---
 
-## Kalau tidak jalan
+## Jika Real-Time / Status Online Tidak Berjalan
 
-* Pastikan `reverb:start` masih jalan
-* Cek port 8080 tidak dipakai
-* Refresh browser
-* Cek `.env` sudah benar
-* Jalankan 2 terminal sekaligus
+Pastikan:
+
+* Terminal `reverb:start` masih aktif dan tidak tertutup
+* Browser sudah di-refresh menggunakan `Ctrl + F5`
+* Port `8080` tidak digunakan aplikasi lain
+* File `.env` sudah sesuai konfigurasi Reverb
+* Kedua terminal berjalan bersamaan
 
 ---
 
 ## Catatan
 
-Folder `vendor` dan `node_modules` tidak diupload ke GitHub. Setelah clone jalankan:
+Folder `vendor` dan `node_modules` tidak disertakan di GitHub karena ukurannya besar.
+
+Setelah clone project jalankan:
 
 ```bash
 composer install
